@@ -1,43 +1,56 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "example.com",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A simple starter to get up and developing quickly with Gatsby and TypeScript",
+  "private": true,
+  "author": "Ryandi Tjia <ryandi.tjia@me.com>",
+  "homepage": "https://example.com/",
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "typescript",
+    "emotion"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanditjia/example.com.git"
+  },
+  "scripts": {
+    "start": "npm run develop",
+    "develop": "gatsby develop",
+    "clean": "gatsby clean",
+    "clean-develop": "npm run clean && npm run develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "develop-hostname": "gatsby develop --host $HOSTNAME --port 3000",
+    "remove-generated-types": "rimraf src/types/__generated__/",
+    "generate": "apollo codegen:generate src/types/__generated__/ --outputFlat --target=typescript --watch",
+    "clean-generate": "npm run remove-generated-types && npm run generate",
+    "format": "prettier --write \"**/*.{js,ts,tsx}\""
+  },
   "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "dotenv": "^8.0.0",
     "gatsby": "^2.7.1",
     "gatsby-image": "^2.1.1",
-    "gatsby-plugin-manifest": "^2.1.1",
-    "gatsby-plugin-offline": "^2.1.1",
+    "gatsby-plugin-emotion": "^4.0.7",
+    "gatsby-plugin-layout": "^1.0.15",
+    "gatsby-plugin-netlify": "^2.0.17",
+    "gatsby-plugin-nprogress": "^2.0.10",
     "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sharp": "^2.1.1",
+    "gatsby-plugin-sitemap": "^2.1.0",
+    "gatsby-plugin-typescript": "^2.0.15",
     "gatsby-source-filesystem": "^2.0.37",
-    "gatsby-transformer-sharp": "^2.1.19",
-    "prop-types": "^15.7.2",
+    "gatsby-transformer-yaml": "^2.1.12",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "^1.17.1"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "@types/react": "^16.8.18",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-helmet": "^5.0.8",
+    "prettier": "^1.17.1",
+    "rimraf": "^2.6.3"
   }
 }

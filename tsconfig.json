@@ -1,0 +1,12 @@
+{
+  "include": ["./src/**/*"],
+
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["dom", "es2017"],
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react"
+  }
+}

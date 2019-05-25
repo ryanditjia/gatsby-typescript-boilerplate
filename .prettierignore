@@ -1,0 +1,5 @@
+src/types/__generated__/
+.cache/
+public/
+node_modules/
+static/
