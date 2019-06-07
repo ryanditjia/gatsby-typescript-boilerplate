@@ -1,7 +1,7 @@
-import React from 'react'
-import { SEO } from '../components/SEO'
+import { SEO } from '@/components/SEO'
+import { HomepageQuery } from '@/types/__generated__/HomepageQuery'
 import { graphql } from 'gatsby'
-import { HomepageQuery } from '../types/__generated__/HomepageQuery'
+import React from 'react'
 
 export const query = graphql`
   query HomepageQuery {

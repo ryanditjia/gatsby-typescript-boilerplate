@@ -1,25 +1,20 @@
 import { LinkGetProps } from '@reach/router'
 
-function debounce(fn: Function, time: number) {
-  let interval: any
-  return (...args: any[]) => {
-    clearTimeout(interval)
-    interval = setTimeout(() => {
-      interval = null
-      fn(...args)
-    }, time)
-  }
-}
-
 /*
  * hex to rgb or rgba
  */
-function hexToRGB(hex: string, alpha?: number) {
+export function hexToRGB(hex: string, alpha: number = 1) {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)
   const b = parseInt(hex.slice(5, 7), 16)
 
-  return alpha ? `rgba(${r}, ${g}, ${b}, ${alpha})` : `rgb(${r}, ${g}, ${b})`
+  if (alpha < 0 || alpha > 1) {
+    throw new Error('Alpha value must be between 0 and 1.')
+  }
+
+  return alpha === 1
+    ? `rgb(${r}, ${g}, ${b})`
+    : `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
 /*
@@ -65,11 +60,11 @@ function addCountryCode(str: string, cc: string = '62') {
 }
 
 // the only function that the app calls, the rest of the functions above are helpers
-function createCallableNumber(str: string) {
+export function createCallableNumber(str: string) {
   return addCountryCode(getPrimaryNumber(str))
 }
 
-function setPartiallyCurrent({
+export function setPartiallyCurrent({
   href,
   isPartiallyCurrent,
   isCurrent,
@@ -79,16 +74,23 @@ function setPartiallyCurrent({
       'data-partially-current': true,
     }
   }
+
+  return {}
 }
 
-function extractNodes<T>(arr: GraphQLEdges<T>): T[] {
+export function extractNodes<T>(arr: Gatsby.GraphQLEdges<T>): T[] {
   return arr.edges.map(({ node }) => node)
 }
 
-export {
-  debounce,
-  hexToRGB,
-  createCallableNumber,
-  setPartiallyCurrent,
-  extractNodes,
+export function fakeGraphQLTag(query: TemplateStringsArray) {
+  const tagArgs = arguments
+
+  return tagArgs[0].reduce(
+    (accumulator: string, string: string, index: number) => {
+      accumulator += string
+      if (index + 1 in tagArgs) accumulator += tagArgs[index + 1]
+      return accumulator
+    },
+    '',
+  )
 }
