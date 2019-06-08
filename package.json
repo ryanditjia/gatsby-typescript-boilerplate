@@ -33,7 +33,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "dotenv": "^8.0.0",
-    "gatsby": "^2.8.5",
+    "gatsby": "^2.8.6",
     "gatsby-image": "^2.1.2",
     "gatsby-plugin-emotion": "^4.0.7",
     "gatsby-plugin-layout": "^1.0.15",
@@ -62,7 +62,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
-    "prettier": "^1.18.0",
+    "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
     "ts-node": "^8.2.0",
     "typescript": "^3.5.1"
