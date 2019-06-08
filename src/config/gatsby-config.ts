@@ -5,6 +5,7 @@ dotenv.config()
 
 export const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
+    // read by gatsby-plugin-sitemap
     siteUrl: 'https://example.com/',
     title: 'Boilerplate for Gatsby + TypeScript',
   },
