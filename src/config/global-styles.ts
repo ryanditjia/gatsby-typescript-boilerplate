@@ -7,7 +7,7 @@ import 'sanitize.css/forms.css'
 export default css`
   html {
     font-family: ${appendSystemFonts('Futura')};
-    cursor: initial;
+    cursor: initial; /* override sanitize.css cursor: default */
   }
 
   abbr[title] {
