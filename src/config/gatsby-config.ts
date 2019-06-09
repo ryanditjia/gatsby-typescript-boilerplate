@@ -1,9 +1,10 @@
 import dotenv from 'dotenv'
 import { GatsbyConfig } from 'gatsby'
+import theme from './theme'
 
 dotenv.config()
 
-export const gatsbyConfig: GatsbyConfig = {
+const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
     // read by gatsby-plugin-sitemap
     siteUrl: 'https://example.com/',
@@ -29,7 +30,7 @@ export const gatsbyConfig: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: '#999',
+        color: theme.color.brand,
         showSpinner: false,
         trickle: true,
         minimum: 0.08,
@@ -39,3 +40,5 @@ export const gatsbyConfig: GatsbyConfig = {
     'gatsby-plugin-netlify',
   ],
 }
+
+module.exports = gatsbyConfig

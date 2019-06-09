@@ -2,4 +2,4 @@
 require('source-map-support').install()
 require('ts-node').register({ files: true })
 
-module.exports = require('./src/config/gatsby-config').gatsbyConfig
+module.exports = require('./src/config/gatsby-config')

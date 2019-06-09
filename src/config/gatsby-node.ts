@@ -1,8 +1,9 @@
 import { GatsbyNode } from 'gatsby'
 import { resolve } from 'path'
-import { fakeGraphQLTag as graphql } from '../utils/helpers' // importing with @/ causes error
+// createPages is run before onCreateWebpackConfig, so importing below with @/ causes error
+import { fakeGraphQLTag as graphql } from '../utils/helpers'
 
-export const gatsbyNode: GatsbyNode = {
+const gatsbyNode: GatsbyNode = {
   createPages: async ({ graphql: graphqlQuery, actions }) => {
     const { createPage } = actions
 
@@ -29,3 +30,5 @@ export const gatsbyNode: GatsbyNode = {
     })
   },
 }
+
+module.exports = gatsbyNode

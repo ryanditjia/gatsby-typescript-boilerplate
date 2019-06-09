@@ -1,4 +1,5 @@
-import { hexToRGB } from '@/utils/helpers'
+// Importing with @/ causes error because this file is imported by gatsby-config
+import { hexToRGB } from '../utils/helpers'
 
 type SingleColorIndex = 'brand' | 'line' | 'shadow'
 export type StatusColorIndex = 'success' | 'error'
@@ -16,12 +17,12 @@ const grays = [
 ]
 
 type Colors = { [key in SingleColorIndex | StatusColorIndex]: string } & {
-  gray: string[]
+  grays: string[]
 }
 
 const colors: Colors = {
   brand: '#6cb348',
-  gray: grays,
+  grays,
   success: '#6cb348',
   error: '#b34848',
   line: grays[2],
