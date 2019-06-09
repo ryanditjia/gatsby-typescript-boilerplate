@@ -4,22 +4,7 @@ import React from 'react'
 type Anchor = React.AnchorHTMLAttributes<HTMLAnchorElement>
 type AnchorExcludeHref = Pick<Anchor, Exclude<keyof Anchor, 'href'>>
 
-interface ExternalLinkProps extends Anchor {
-  href: string
-}
-
-interface MailtoLinkProps extends AnchorExcludeHref {
-  email: string
-}
-
-interface PhoneLinkProps extends AnchorExcludeHref {
-  phone: string
-}
-
-interface WhatsAppLinkProps extends AnchorExcludeHref {
-  phone: string
-}
-
+type ExternalLinkProps = Anchor & { href: string }
 export const ExternalLink: React.FC<ExternalLinkProps> = ({
   href,
   children,
@@ -30,6 +15,7 @@ export const ExternalLink: React.FC<ExternalLinkProps> = ({
   </a>
 )
 
+type MailtoLinkProps = AnchorExcludeHref & { email: string }
 export const MailtoLink: React.FC<MailtoLinkProps> = ({
   email,
   children,
@@ -40,6 +26,7 @@ export const MailtoLink: React.FC<MailtoLinkProps> = ({
   </a>
 )
 
+type PhoneLinkProps = AnchorExcludeHref & { phone: string }
 export const PhoneLink: React.FC<PhoneLinkProps> = ({
   phone,
   children,
@@ -50,6 +37,7 @@ export const PhoneLink: React.FC<PhoneLinkProps> = ({
   </a>
 )
 
+type WhatsAppLinkProps = AnchorExcludeHref & { phone: string }
 export const WhatsAppLink: React.FC<WhatsAppLinkProps> = ({
   phone,
   children,
