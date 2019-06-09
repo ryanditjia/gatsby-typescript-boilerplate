@@ -46,7 +46,8 @@
     "gatsby-transformer-yaml": "^2.1.12",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "sanitize.css": "^10.0.0"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
