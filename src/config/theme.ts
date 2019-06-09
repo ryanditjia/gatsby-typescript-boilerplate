@@ -30,11 +30,13 @@ const colors: Colors = {
 }
 
 const theme = {
-  color: colors,
+  colors,
   maxWidth: '64rem',
   vwImageCapWidth: 1138, // 64rem = 1024px. 1024px / 0.9 = 1138
-  size: [12, 14, 16, 18, 20, 24, 30, 36, 48, 60, 72].map(s => s / 16 + 'rem'),
-  elevation: [
+  fontSizes: [12, 14, 16, 18, 20, 24, 30, 36, 48, 60, 72].map(
+    s => s / 16 + 'rem',
+  ),
+  elevations: [
     `0 1px 2px ${hexToRGB(colors.shadow, 0.24)},` +
       `0 1px 3px ${hexToRGB(colors.shadow, 0.12)}`,
     `0 2px 4px ${hexToRGB(colors.shadow, 0.12)},` +
@@ -45,7 +47,7 @@ const theme = {
       `0 10px 20px ${hexToRGB(colors.shadow, 0.15)}`,
     `0 20px 40px ${hexToRGB(colors.shadow, 0.2)}`,
   ],
-  textShadow: '0 2px 4px rgba(34, 41, 47, 0.32)',
+  textShadow: `0 2px 4px ${hexToRGB(colors.shadow, 0.32)}`,
   easings: {
     // taken from easings.net
     easeInBack: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
@@ -54,7 +56,7 @@ const theme = {
     // taken from http://tobiasahlin.com/blog/how-to-animate-box-shadow/
     easeOut: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
   },
-  radius: {
+  radii: {
     photo: '0.125rem',
   },
 }

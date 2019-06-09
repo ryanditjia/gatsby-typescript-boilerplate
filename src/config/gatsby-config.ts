@@ -30,7 +30,7 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: theme.color.brand,
+        color: theme.colors.brand,
         showSpinner: false,
         trickle: true,
         minimum: 0.08,
