@@ -27,8 +27,7 @@
     "gen:graphql": "apollo codegen:generate src/types/__generated__/ --outputFlat --target=typescript --watch",
     "clean-gen:graphql": "npm run clean:gen-types && npm run gen:graphql",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "lint": "eslint . --ext .js --ext .ts --ext .tsx",
-    "type-check": "tsc"
+    "lint": "tsc && eslint . --ext .js --ext .ts --ext .tsx"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
