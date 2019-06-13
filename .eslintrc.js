@@ -30,7 +30,7 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': [
       'warn',
       {
-        components: ['Link'],
+        components: ['Link', 'ExternalLink'],
         specialLink: ['to'],
         aspects: ['noHref', 'invalidHref'],
       },
