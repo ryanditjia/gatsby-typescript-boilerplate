@@ -1,10 +1,10 @@
 import { SEO } from '@/components/SEO'
-import { HomepageQuery } from '@/types/graphql'
+import { HomepageQuery } from '@/types/__generated__/HomepageQuery'
 import { graphql } from 'gatsby'
 import React from 'react'
 
 export const query = graphql`
-  query Homepage {
+  query HomepageQuery {
     site {
       siteMetadata {
         title

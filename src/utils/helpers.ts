@@ -17,51 +17,45 @@ export function hexToRGB(hex: string, alpha: number = 1) {
     : `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
-/*
- * remove all whitespace from a string
- */
-function removeWhitespace(str: string) {
-  return str.replace(/\s/g, '')
-}
+export function createPhoneNumber({
+  phone,
+  countryCode = '62',
+}: {
+  phone: string
+  countryCode?: string
+}) {
+  const sanitizedNumber = phone
+    .replace(/-|\s/g, '') // remove hyphens and whitespaces
+    .match(/\d+/g)[0] // return the first set of numbers (up to a non-numerical character)
 
-/*
- * return the first set of numbers it finds (before it finds a non-numerical character)
- */
-function getFirstSetOfNumbers(str: string) {
-  return str.match(/\d+/g)[0]
-}
-
-/*
- * run removeWhitespace then getLeadingNumbers
- */
-function getPrimaryNumber(str: string) {
-  return getFirstSetOfNumbers(removeWhitespace(str))
-}
-
-/*
- * make a valid number for tel: in <a> tag
- * default to 62 (Indonesia)
- */
-function addCountryCode(str: string, cc: string = '62') {
-  // converting to number removes the leading 0
-  if (str.startsWith('0')) {
-    return `+${cc}${Number(str)}`
+  if (sanitizedNumber.startsWith('0')) {
+    // converting to number removes the leading 0
+    return countryCode + Number(sanitizedNumber)
   }
 
-  if (str.startsWith(cc)) {
-    return `+${str}`
+  if (sanitizedNumber.startsWith(countryCode)) {
+    // if starts with country code, return as is
+    return sanitizedNumber
   }
 
-  if (str.startsWith(`+${cc}`)) {
-    return str
-  }
-
-  return `+${cc}${str}`
+  return countryCode + sanitizedNumber
 }
 
-// the only function that the app calls, the rest of the functions above are helpers
-export function createCallableNumber(str: string) {
-  return addCountryCode(getPrimaryNumber(str))
+export function createWhatsAppLink({
+  phone,
+  text,
+}: {
+  phone: string
+  text?: string
+}) {
+  // slice(1) to remove the leading + sign
+  let link = `https://wa.me/${createPhoneNumber({ phone })}`
+
+  if (text) {
+    link += `?text=${encodeURIComponent(text)}`
+  }
+
+  return link
 }
 
 export function setPartiallyCurrent({

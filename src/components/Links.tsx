@@ -1,4 +1,4 @@
-import { createCallableNumber } from '@/utils/helpers'
+import { createWhatsAppLink, createPhoneNumber } from '@/utils/helpers'
 import React from 'react'
 
 type Anchor = React.AnchorHTMLAttributes<HTMLAnchorElement>
@@ -32,20 +32,20 @@ export const PhoneLink: React.FC<PhoneLinkProps> = ({
   children,
   ...restProps
 }) => (
-  <a href={`tel:${createCallableNumber(phone)}`} {...restProps}>
+  <a href={`tel:+${createPhoneNumber({ phone })}`} {...restProps}>
     {children}
   </a>
 )
 
-type WhatsAppLinkProps = AnchorExcludeHref & { phone: string }
+type WhatsAppLinkProps = AnchorExcludeHref & { phone: string; text?: string }
 export const WhatsAppLink: React.FC<WhatsAppLinkProps> = ({
   phone,
+  text,
   children,
   ...restProps
 }) => (
   <a
-    // slice(1) to remove the leading + sign
-    href={`https://wa.me/${createCallableNumber(phone).slice(1)}`}
+    href={createWhatsAppLink({ phone, text })}
     target="_blank"
     rel="noopener noreferrer nofollow"
     {...restProps}
