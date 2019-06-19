@@ -36,6 +36,7 @@ const gatsbyConfig: GatsbyConfig = {
         minimum: 0.08,
       },
     },
+    'gatsby-plugin-webpack-bundle-analyser-v2',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-netlify',
   ],
