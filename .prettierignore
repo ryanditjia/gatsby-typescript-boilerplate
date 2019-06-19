@@ -1,4 +1,4 @@
-src/types/__generated__/
+src/types/graphql.ts
 .cache/
 public/
 node_modules/

@@ -78,7 +78,7 @@ export function setPartiallyCurrent({
   return {}
 }
 
-export function extractNodes<T>(arr: Gatsby.GraphQLEdges<T>): T[] {
+export function extractNodes<T>(arr: GraphQLEdges<T>): T[] {
   return arr.edges.map(({ node }) => node)
 }
 

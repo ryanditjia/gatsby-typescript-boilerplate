@@ -1,39 +1,6 @@
 import { css } from '@emotion/core'
 import { hexToRGB } from './helpers'
 
-/* Only accepts unitless numbers in px */
-export function fluidFontSize(
-  minFontSize: number,
-  maxFontSize: number,
-  minViewportWidth: number,
-  maxViewportWidth: number,
-) {
-  const sizeDelta = maxFontSize - minFontSize
-  const viewportWidthDelta = maxViewportWidth - minViewportWidth
-  const minFontSizeWithPx = `${minFontSize}px`
-  const maxFontSizeWithPx = `${maxFontSize}px`
-  const minViewportWidthWithPx = `${minViewportWidth}px`
-  const maxViewportWidthWithPx = `${maxViewportWidth}px`
-
-  return css`
-    /* Minimum font-size */
-    font-size: ${minFontSizeWithPx};
-
-    /* Fluidity starts */
-    @media (min-width: ${minViewportWidthWithPx}) {
-      font-size: calc(
-        ${minFontSizeWithPx} + ${sizeDelta} *
-          ((100vw - ${minViewportWidthWithPx}) / ${viewportWidthDelta})
-      );
-    }
-
-    /* Maximum viewport width reached */
-    @media (min-width: ${maxViewportWidthWithPx}) {
-      font-size: ${maxFontSizeWithPx};
-    }
-  `
-}
-
 function numberFormat(val: number, decimalPlaces: number) {
   var multiplier = Math.pow(10, decimalPlaces)
   return Number(
@@ -96,21 +63,32 @@ export const fontSmoothing = css`
   -moz-osx-font-smoothing: grayscale;
 `
 
-const systemFontStack = [
+export const systemSans = [
   'system-ui',
   '-apple-system' /* macOS 10.11-10.12 */,
-  'Segoe UI' /* Windows 6+ */,
-  'Roboto' /* Android 4+ */,
-  'Ubuntu' /* Ubuntu 10.10+ */,
-  'Cantarell' /* Gnome 3+ */,
-  'Noto Sans' /* KDE Plasma 5+ */,
+  '"Segoe UI"' /* Windows 6+ */,
+  '"Roboto"' /* Android 4+ */,
+  '"Ubuntu"' /* Ubuntu 10.10+ */,
+  '"Cantarell"' /* Gnome 3+ */,
+  '"Noto Sans"' /* KDE Plasma 5+ */,
   'sans-serif' /* fallback */,
-  'Apple Color Emoji' /* macOS emoji */,
-  'Segoe UI Emoji' /* Windows emoji */,
-  'Segoe UI Symbol' /* Windows emoji */,
-  'Noto Color Emoji' /* Linux emoji */,
+  '"Apple Color Emoji"' /* macOS emoji */,
+  '"Segoe UI Emoji"' /* Windows emoji */,
+  '"Segoe UI Symbol"' /* Windows emoji */,
+  '"Noto Color Emoji"' /* Linux emoji */,
 ]
 
-export function appendSystemFonts(mainFontFamily: string) {
-  return [mainFontFamily, ...systemFontStack].join(',')
-}
+export const systemMono = [
+  '"Menlo"' /* macOS 10.10+ */,
+  '"Consolas"' /* Windows 6+ */,
+  '"Roboto Mono"' /* Android 4+ */,
+  '"Ubuntu Monospace"' /* Ubuntu 10.10+ */,
+  '"Noto Mono"' /* KDE Plasma 5+ */,
+  '"Oxygen Mono"' /* KDE Plasma 4+ */,
+  '"Liberation Mono"' /* Linux/OpenOffice fallback */,
+  'monospace' /* fallback */,
+  '"Apple Color Emoji"' /* macOS emoji */,
+  '"Segoe UI Emoji"' /* Windows emoji */,
+  '"Segoe UI Symbol"' /* Windows emoji */,
+  '"Noto Color Emoji"' /* Linux emoji */,
+]
