@@ -48,7 +48,6 @@ export function createWhatsAppLink({
   phone: string
   text?: string
 }) {
-  // slice(1) to remove the leading + sign
   let link = `https://wa.me/${createPhoneNumber({ phone })}`
 
   if (text) {
