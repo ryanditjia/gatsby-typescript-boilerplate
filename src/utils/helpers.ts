@@ -1,6 +1,16 @@
 import { LinkGetProps } from '@reach/router'
 
 /*
+ * formal to how many decimal places
+ */
+export function numberFormat(val: number, decimalPlaces: number) {
+  var multiplier = Math.pow(10, decimalPlaces)
+  return Number(
+    (Math.round(val * multiplier) / multiplier).toFixed(decimalPlaces),
+  )
+}
+
+/*
  * hex to rgb or rgba
  */
 export function hexToRGB(hex: string, alpha: number = 1) {
