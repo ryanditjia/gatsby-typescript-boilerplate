@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 
-interface Obj {
-  ref: React.RefObject<HTMLElement>
-  rootMargin?: string
-  initialState?: boolean
-}
-
-function useOnScreen({
+export function useOnScreen({
   ref,
   rootMargin = '0px',
   initialState = false,
-}: Obj): boolean {
+}: {
+  ref: React.RefObject<HTMLElement>
+  rootMargin?: string
+  initialState?: boolean
+}): boolean {
   const [isIntersecting, setIntersecting] = useState(initialState)
 
   useEffect(() => {
@@ -30,11 +28,11 @@ function useOnScreen({
     }
 
     return () => {
-      observer.unobserve(observedNode)
+      if (observedNode) {
+        observer.unobserve(observedNode)
+      }
     }
   }, [ref, rootMargin])
 
   return isIntersecting
 }
-
-export { useOnScreen }
