@@ -15,7 +15,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "strict": true,
-    "strictNullChecks": false
+    "strict": true
   }
 }

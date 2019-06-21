@@ -34,21 +34,30 @@ export function createPhoneNumber({
   phone: string
   countryCode?: string
 }) {
-  const sanitizedNumber = phone
-    .replace(/-|\s/g, '') // remove hyphens and whitespaces
-    .match(/\d+/g)[0] // return the first set of numbers (up to a non-numerical character)
+  const splitNumbers =
+    phone
+      .replace(/-|\s/g, '') // remove hyphens and whitespaces
+      .match(/\d+/g) || [] // split into array of numbers (divided by non-numerical characters)
 
-  if (sanitizedNumber.startsWith('0')) {
-    // converting to number removes the leading 0
-    return countryCode + Number(sanitizedNumber)
+  // check if there’s any number at all
+  if (splitNumbers.length > 0) {
+    // get the first set of numbers
+    const sanitizedNumber = splitNumbers.length > 0 ? splitNumbers[0] : ''
+
+    if (sanitizedNumber.startsWith('0')) {
+      // converting to number removes the leading 0
+      return countryCode + Number(sanitizedNumber)
+    }
+
+    if (sanitizedNumber.startsWith(countryCode)) {
+      // if starts with country code, return as is
+      return sanitizedNumber
+    }
+
+    return countryCode + sanitizedNumber
   }
 
-  if (sanitizedNumber.startsWith(countryCode)) {
-    // if starts with country code, return as is
-    return sanitizedNumber
-  }
-
-  return countryCode + sanitizedNumber
+  throw new Error('Please pass a valid phone number')
 }
 
 export function createWhatsAppLink({

@@ -21,7 +21,7 @@ const Homepage: React.FC<Props> = ({ data }) => (
   <>
     <SEO title="Home" metaDescription="Home is where it begins" />
 
-    <h1>{data.site.siteMetadata.title}</h1>
+    <h1>{data!.site!.siteMetadata!.title}</h1>
   </>
 )
 
