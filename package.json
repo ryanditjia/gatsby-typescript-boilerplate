@@ -17,17 +17,13 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop --host 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "dev:hostname": "gatsby develop --host $HOSTNAME --port 3000",
-    "clean:gen-types": "rimraf src/types/__generated__/",
-    "gen:graphql": "apollo codegen:generate src/types/__generated__/ --outputFlat --target=typescript --watch",
-    "clean-gen:graphql": "npm run clean:gen-types && npm run gen:graphql",
+    "gen": "apollo codegen:generate src/types/graphql.ts --endpoint=http://0.0.0.0:8000/___graphql --outputFlat --target=typescript --tagName=graphql --includes='src/**/*.{ts,tsx}' --watch",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "lint": "tsc --noEmit && eslint . --ext .js --ext .ts --ext .tsx",
-    "lint:fix": "npm run lint --fix"
+    "lint": "tsc --noEmit && eslint . --ext .js --ext .ts --ext .tsx"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
@@ -66,7 +62,6 @@
     "eslint-plugin-react-hooks": "^1.6.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.0",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
   }

@@ -1,5 +1,5 @@
 import { SEO } from '@/components/SEO'
-import { HomepageQuery } from '@/types/__generated__/HomepageQuery'
+import { HomepageQuery } from '@/types/graphql'
 import { graphql } from 'gatsby'
 import React from 'react'
 
