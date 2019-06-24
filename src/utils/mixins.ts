@@ -12,6 +12,10 @@ export const truncate = css`
   white-space: nowrap;
 `
 
+export const iOSMomentumScrolling = css`
+  -webkit-overflow-scrolling: touch;
+`
+
 export const srOnly = css`
   border: 0;
   clip: rect(0 0 0 0);
