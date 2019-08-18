@@ -1,65 +1,6 @@
 import { css } from '@emotion/core'
 import { hexToRGB, numberFormat } from './helpers'
 
-export const fontSmoothing = css`
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-`
-
-export const truncate = css`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`
-
-export const iOSMomentumScrolling = css`
-  -webkit-overflow-scrolling: touch;
-`
-
-export const srOnly = css`
-  border: 0;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
-`
-
-export const systemFontStack = [
-  'system-ui',
-  '-apple-system' /* macOS 10.11-10.12 */,
-  '"Segoe UI"' /* Windows 6+ */,
-  '"Roboto"' /* Android 4+ */,
-  '"Ubuntu"' /* Ubuntu 10.10+ */,
-  '"Cantarell"' /* Gnome 3+ */,
-  '"Noto Sans"' /* KDE Plasma 5+ */,
-  'sans-serif' /* fallback */,
-  '"Apple Color Emoji"' /* macOS emoji */,
-  '"Segoe UI Emoji"' /* Windows emoji */,
-  '"Segoe UI Symbol"' /* Windows emoji */,
-  '"Noto Color Emoji"' /* Linux emoji */,
-]
-
-export const systemMono = [
-  '"Menlo"' /* macOS 10.10+ */,
-  '"Consolas"' /* Windows 6+ */,
-  '"Roboto Mono"' /* Android 4+ */,
-  '"Ubuntu Monospace"' /* Ubuntu 10.10+ */,
-  '"Noto Mono"' /* KDE Plasma 5+ */,
-  '"Oxygen Mono"' /* KDE Plasma 4+ */,
-  '"Liberation Mono"' /* Linux/OpenOffice fallback */,
-  'monospace' /* fallback */,
-  '"Apple Color Emoji"' /* macOS emoji */,
-  '"Segoe UI Emoji"' /* Windows emoji */,
-  '"Segoe UI Symbol"' /* Windows emoji */,
-  '"Noto Color Emoji"' /* Linux emoji */,
-]
-
 const scrimStops = [
   [1, 0],
   [0.738, 19],

@@ -1,4 +1,19 @@
+import { GraphQLEdges } from '@/types'
 import { LinkGetProps } from '@reach/router'
+
+/*
+ * merge classNames together
+ */
+export function cx(...args: Array<string | boolean | undefined>) {
+  return args
+    .filter(
+      cls =>
+        typeof cls !== 'boolean' &&
+        typeof cls !== 'undefined' &&
+        cls.trim() !== '',
+    )
+    .join(' ')
+}
 
 /*
  * formal to how many decimal places
@@ -27,6 +42,16 @@ export function hexToRGB(hex: string, alpha: number = 1) {
     : `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
+/*
+ * Check if email is valid
+ */
+export function isValidEmail(email: string) {
+  return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
+}
+
+/*
+ * Create valid tel: from Indonesia style of writing phone numbers
+ */
 export function createPhoneNumber({
   phone,
   countryCode = '62',
@@ -60,6 +85,9 @@ export function createPhoneNumber({
   throw new Error('Please pass a valid phone number')
 }
 
+/*
+ *Create WhatsApp link from phone number, with optional text
+ */
 export function createWhatsAppLink({
   phone,
   text,
@@ -76,6 +104,10 @@ export function createWhatsAppLink({
   return link
 }
 
+/*
+ * https://reach.tech/router/api/Link
+ * Set prop to Link
+ */
 export function setPartiallyCurrent({
   href,
   isPartiallyCurrent,
@@ -90,10 +122,16 @@ export function setPartiallyCurrent({
   return {}
 }
 
+/*
+ * Extract data from Relay GraphQL style edge node
+ */
 export function extractNodes<T>(arr: GraphQLEdges<T>): T[] {
   return arr.edges.map(({ node }) => node)
 }
 
+/*
+ * Helper for Gatsby’s createPages graphql query
+ */
 export function fakeGraphQLTag(query: TemplateStringsArray) {
   const tagArgs = arguments
 
@@ -105,4 +143,42 @@ export function fakeGraphQLTag(query: TemplateStringsArray) {
     },
     '',
   )
+}
+
+/*
+ * Encoding forms with attachments (input type file)
+ */
+function encodeWithFiles(data: any): FormData {
+  const formData = new FormData()
+
+  Object.entries<any>(data).forEach(([key, value]) => {
+    formData.append(key, value)
+  })
+
+  return formData
+}
+
+/*
+ * Encoding forms without attachments
+ */
+function encodeWithoutFiles(data: any): string {
+  return Object.entries<any>(data)
+    .map(
+      ([key, value]) =>
+        encodeURIComponent(key) + '=' + encodeURIComponent(value),
+    )
+    .join('&')
+}
+
+/*
+ * The function that’s public facing, wrapping the 2 functions above
+ */
+export function encodeForm({
+  data,
+  withFiles = false,
+}: {
+  data: any
+  withFiles?: boolean
+}) {
+  return withFiles ? encodeWithFiles(data) : encodeWithoutFiles(data)
 }

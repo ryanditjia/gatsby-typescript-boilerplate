@@ -12,6 +12,7 @@ module.exports = {
   },
 
   rules: {
+    '@typescript-eslint/no-angle-bracket-type-assertion': 'off',
     'no-shadow': 'warn',
     'import/no-useless-path-segments': 'warn',
     'import/no-unresolved': 'error',
