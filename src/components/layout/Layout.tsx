@@ -1,9 +1,13 @@
-import '@/assets/fonts/loader.css'
-import '@/css/main.css'
 import React from 'react'
+import '../../assets/fonts/loader.css'
+import '../../css/main.css'
 import { HtmlHead } from './HtmlHead'
 
-const Layout: React.FC = ({ children }) => {
+type Props = {
+  children: React.ReactNode
+}
+
+function Layout({ children }: Props): React.ReactElement {
   return (
     <>
       <HtmlHead />

@@ -1,5 +1,5 @@
-import { GraphQLEdges } from '@/types'
 import { LinkGetProps } from '@reach/router'
+import { GraphQLEdges } from '../types'
 
 /*
  * merge classNames together

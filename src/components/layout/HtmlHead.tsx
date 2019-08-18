@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-export const HtmlHead: React.FC = () => {
+export function HtmlHead(): React.ReactElement {
   return (
     <Helmet>
       <html lang="en-US" />

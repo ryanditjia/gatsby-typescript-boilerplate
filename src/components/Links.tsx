@@ -1,55 +1,71 @@
-import { createWhatsAppLink, createPhoneNumber } from '@/utils/helpers'
 import React from 'react'
+import { Anchor, AnchorExcludeHref } from '../types'
+import { createPhoneNumber, createWhatsAppLink } from '../utils/helpers'
 
-type Anchor = React.AnchorHTMLAttributes<HTMLAnchorElement>
-type AnchorExcludeHref = Pick<Anchor, Exclude<keyof Anchor, 'href'>>
-
-type ExternalLinkProps = Anchor & { href: string }
-export const ExternalLink: React.FC<ExternalLinkProps> = ({
+type ExternalLinkProps = Anchor & { href: string; children: React.ReactNode }
+export function ExternalLink({
   href,
   children,
   ...restProps
-}) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" {...restProps}>
-    {children}
-  </a>
-)
+}: ExternalLinkProps): React.ReactElement {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" {...restProps}>
+      {children}
+    </a>
+  )
+}
 
-type MailtoLinkProps = AnchorExcludeHref & { email: string }
-export const MailtoLink: React.FC<MailtoLinkProps> = ({
+type MailtoLinkProps = AnchorExcludeHref & {
+  email: string
+  children: React.ReactNode
+}
+export function MailtoLink({
   email,
   children,
   ...restProps
-}) => (
-  <a href={`mailto:${email}`} {...restProps}>
-    {children}
-  </a>
-)
+}: MailtoLinkProps): React.ReactElement {
+  return (
+    <a href={`mailto:${email}`} {...restProps}>
+      {children}
+    </a>
+  )
+}
 
-type PhoneLinkProps = AnchorExcludeHref & { phone: string }
-export const PhoneLink: React.FC<PhoneLinkProps> = ({
+type PhoneLinkProps = AnchorExcludeHref & {
+  phone: string
+  children: React.ReactNode
+}
+export function PhoneLink({
   phone,
   children,
   ...restProps
-}) => (
-  <a href={`tel:+${createPhoneNumber({ phone })}`} {...restProps}>
-    {children}
-  </a>
-)
+}: PhoneLinkProps): React.ReactElement {
+  return (
+    <a href={`tel:+${createPhoneNumber({ phone })}`} {...restProps}>
+      {children}
+    </a>
+  )
+}
 
-type WhatsAppLinkProps = AnchorExcludeHref & { phone: string; text?: string }
-export const WhatsAppLink: React.FC<WhatsAppLinkProps> = ({
+type WhatsAppLinkProps = AnchorExcludeHref & {
+  phone: string
+  text?: string
+  children: React.ReactNode
+}
+export function WhatsAppLink({
   phone,
   text,
   children,
   ...restProps
-}) => (
-  <a
-    href={createWhatsAppLink({ phone, text })}
-    target="_blank"
-    rel="noopener noreferrer nofollow"
-    {...restProps}
-  >
-    {children}
-  </a>
-)
+}: WhatsAppLinkProps): React.ReactElement {
+  return (
+    <a
+      href={createWhatsAppLink({ phone, text })}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      {...restProps}
+    >
+      {children}
+    </a>
+  )
+}

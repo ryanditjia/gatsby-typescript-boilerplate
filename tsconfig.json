@@ -2,19 +2,15 @@
   "include": ["src/**/*"],
 
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"] // import with @/
-    },
-    "target": "esnext",
     "module": "commonjs",
-    "lib": ["dom", "esnext"],
+    "target": "esnext",
     "jsx": "preserve",
+    "lib": ["dom", "esnext"],
+    "strict": true,
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "strict": true
+    "noImplicitReturns": true
   }
 }

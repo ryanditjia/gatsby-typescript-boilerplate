@@ -14,6 +14,7 @@ const gatsbyConfig: GatsbyConfig = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-layout',
       options: {

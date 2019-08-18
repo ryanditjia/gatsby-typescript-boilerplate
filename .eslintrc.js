@@ -3,12 +3,6 @@ module.exports = {
 
   settings: {
     linkComponents: { name: 'Link', linkAttribute: 'to' },
-    'import/resolver': {
-      alias: {
-        map: [['@', './src']],
-        extensions: ['.ts', '.tsx'],
-      },
-    },
   },
 
   rules: {

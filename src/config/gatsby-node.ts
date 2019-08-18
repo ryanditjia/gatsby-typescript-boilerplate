@@ -1,6 +1,4 @@
 import { GatsbyNode } from 'gatsby'
-import { resolve } from 'path'
-// createPages is run before onCreateWebpackConfig, so importing below with @/ causes error
 import { fakeGraphQLTag as graphql } from '../utils/helpers'
 
 const gatsbyNode: GatsbyNode = {
@@ -19,15 +17,6 @@ const gatsbyNode: GatsbyNode = {
 
     console.log(query)
     console.log(createPage)
-  },
-  onCreateWebpackConfig: ({ actions }) => {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          '@': resolve(__dirname, '..'), // path to src
-        },
-      },
-    })
   },
 }
 
