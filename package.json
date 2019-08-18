@@ -35,12 +35,13 @@
     "gatsby-plugin-layout": "^1.1.3",
     "gatsby-plugin-netlify": "^2.1.5",
     "gatsby-plugin-nprogress": "^2.1.2",
+    "gatsby-plugin-postcss": "^2.1.3",
+    "gatsby-plugin-purgecss": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.1.3",
     "gatsby-plugin-sitemap": "^2.2.6",
     "gatsby-plugin-typescript": "^2.1.2",
     "gatsby-plugin-webpack-size": "^1.0.0",
     "gatsby-source-filesystem": "^2.1.9",
-    "gatsby-transformer-yaml": "^2.2.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1"
@@ -53,6 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "apollo": "^2.17.4",
+    "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "eslint": "^6.1.0",
     "eslint-config-react-app": "^5.0.1",
@@ -61,7 +63,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "postcss-import": "^12.0.1",
     "prettier": "^1.18.2",
+    "tailwind-css-variables": "^2.0.3",
+    "tailwindcss": "^1.1.2",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   }

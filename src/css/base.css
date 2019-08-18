@@ -1,0 +1,58 @@
+html {
+  /* prettier-ignore */
+  font-family:
+    system-ui,
+    -apple-system /* macOS 10.11-10.12 */,
+    'Segoe UI' /* Windows 6+ */,
+    'Roboto' /* Android 4+ */,
+    'Ubuntu' /* Ubuntu 10.10+ */,
+    'Cantarell' /* Gnome 3+ */,
+    'Noto Sans' /* KDE Plasma 5+ */,
+    sans-serif /* fallback */,
+    'Apple Color Emoji' /* macOS emoji */,
+    'Segoe UI Emoji' /* Windows emoji */,
+    'Segoe UI Symbol' /* Windows emoji */,
+    'Noto Color Emoji' /* Linux emoji */;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 103.125%;
+  }
+}
+
+@media (min-width: 960px) {
+  html {
+    font-size: 106.25%;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 109.375%;
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+/* body {
+  background: #fbfbfc;
+  @apply text-gray-700;
+} */
+
+a,
+button {
+  transition: all 0.1s ease;
+}
+
+abbr[title] {
+  cursor: help;
+}
+
+summary {
+  cursor: pointer;
+}

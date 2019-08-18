@@ -1,6 +1,5 @@
 import dotenv from 'dotenv'
 import { GatsbyConfig } from 'gatsby'
-import theme from './theme'
 
 dotenv.config()
 
@@ -14,26 +13,26 @@ const gatsbyConfig: GatsbyConfig = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-plugin-layout',
       options: {
-        component: require.resolve('../components/Layout.tsx'),
-      },
-    },
-    'gatsby-transformer-yaml',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: './src/data/', // this is relative to gatsby-config.js
+        component: require.resolve('../components/layout/Layout.tsx'),
       },
     },
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: theme.colors.brand,
+        color: 'rebeccapurple',
         showSpinner: false,
         trickle: true,
         minimum: 0.08,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        tailwind: true,
       },
     },
     {
