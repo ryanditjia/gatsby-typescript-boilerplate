@@ -36,7 +36,14 @@ const gatsbyConfig: GatsbyConfig = {
         minimum: 0.08,
       },
     },
-    'gatsby-plugin-webpack-bundle-analyser-v2',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        // TODO: change this URL
+        siteUrl: 'https://www.example.com',
+      },
+    },
+    'gatsby-plugin-webpack-size',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-netlify',
   ],
