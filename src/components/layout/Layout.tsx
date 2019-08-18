@@ -4,21 +4,21 @@ import '../../css/main.css'
 import { HtmlHead } from './HtmlHead'
 
 type Props = {
-  children: React.ReactNode
+	children: React.ReactNode
 }
 
 function Layout({ children }: Props): React.ReactElement {
-  return (
-    <>
-      <HtmlHead />
+	return (
+		<>
+			<HtmlHead />
 
-      <header>Header</header>
-      <nav>Desktop Nav</nav>
-      <nav>Mobile Nav</nav>
-      <main>{children}</main>
-      <footer>Footer</footer>
-    </>
-  )
+			<header>Header</header>
+			<nav>Desktop Nav</nav>
+			<nav>Mobile Nav</nav>
+			<main>{children}</main>
+			<footer>Footer</footer>
+		</>
+	)
 }
 
 export default Layout

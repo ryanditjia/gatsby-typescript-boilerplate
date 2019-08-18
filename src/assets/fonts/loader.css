@@ -1,39 +1,45 @@
 /* FontNamePascalCase Book */
 /* @font-face {
-  font-family: 'FontNamePascalCase';
-  src: url('./font-name-lowercase/font-name-lowercase-book.woff2') format('woff2'),
-    url('./font-name-lowercase/font-name-lowercase-book.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'FontNamePascalCase';
+	src: url('./font-name-lowercase/font-name-lowercase-book.woff2')
+			format('woff2'),
+		url('./font-name-lowercase/font-name-lowercase-book.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 } */
 
 /* FontNamePascalCase Book Italic */
 /* @font-face {
-  font-family: 'FontNamePascalCase';
-  src: url('./font-name-lowercase/font-name-lowercase-book-italic.woff2') format('woff2'),
-    url('./font-name-lowercase/font-name-lowercase-book-italic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+	font-family: 'FontNamePascalCase';
+	src: url('./font-name-lowercase/font-name-lowercase-book-italic.woff2')
+			format('woff2'),
+		url('./font-name-lowercase/font-name-lowercase-book-italic.woff')
+			format('woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
 } */
 
 /* FontNamePascalCase Bold */
 /* @font-face {
-  font-family: 'FontNamePascalCase';
-  src: url('./font-name-lowercase/font-name-lowercase-bold.woff2') format('woff2'),
-    url('./font-name-lowercase/font-name-lowercase-bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'FontNamePascalCase';
+	src: url('./font-name-lowercase/font-name-lowercase-bold.woff2')
+			format('woff2'),
+		url('./font-name-lowercase/font-name-lowercase-bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 } */
 
 /* FontNamePascalCase Bold Italic */
 /* @font-face {
-  font-family: 'FontNamePascalCase';
-  src: url('./font-name-lowercase/font-name-lowercase-bold-italic.woff2') format('woff2'),
-    url('./font-name-lowercase/font-name-lowercase-bold-italic.woff') format('woff');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
+	font-family: 'FontNamePascalCase';
+	src: url('./font-name-lowercase/font-name-lowercase-bold-italic.woff2')
+			format('woff2'),
+		url('./font-name-lowercase/font-name-lowercase-bold-italic.woff')
+			format('woff');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
 } */
