@@ -14,3 +14,10 @@ export interface NavItem {
 	text: string
 	href: string
 }
+
+interface BaseFormData {
+	'form-name': string
+}
+
+export type FormDataWithFile = BaseFormData & Record<string, string | File>
+export type FormDataWithoutFile = BaseFormData & Record<string, string>

@@ -1,5 +1,5 @@
 import { LinkGetProps } from '@reach/router'
-import { GraphQLEdges } from '../types'
+import { FormDataWithFile, FormDataWithoutFile, GraphQLEdges } from '../types'
 
 /*
  * merge classNames together
@@ -148,10 +148,10 @@ export function fakeGraphQLTag(query: TemplateStringsArray) {
 /*
  * Encoding forms with attachments (input type file)
  */
-function encodeWithFiles(data: any): FormData {
+function encodeWithFile(data: FormDataWithFile): FormData {
 	const formData = new FormData()
 
-	Object.entries<any>(data).forEach(([key, value]) => {
+	Object.entries(data).forEach(([key, value]) => {
 		formData.append(key, value)
 	})
 
@@ -161,8 +161,8 @@ function encodeWithFiles(data: any): FormData {
 /*
  * Encoding forms without attachments
  */
-function encodeWithoutFiles(data: any): string {
-	return Object.entries<any>(data)
+function encodeWithoutFile(data: FormDataWithoutFile): string {
+	return Object.entries(data)
 		.map(
 			([key, value]) =>
 				encodeURIComponent(key) + '=' + encodeURIComponent(value),
@@ -170,15 +170,25 @@ function encodeWithoutFiles(data: any): string {
 		.join('&')
 }
 
+function isFormDataWithFile(
+	data: FormDataWithFile | FormDataWithoutFile,
+): data is FormDataWithFile {
+	return Object.values(data).some(value => value instanceof File)
+}
+
 /*
- * The function that’s public facing, wrapping the 2 functions above
+ * AJAX Netlify Forms submission
  */
-export function encodeForm({
-	data,
-	withFiles = false,
-}: {
-	data: any
-	withFiles?: boolean
-}) {
-	return withFiles ? encodeWithFiles(data) : encodeWithoutFiles(data)
+export function submitFormToNetlify(
+	data: FormDataWithFile | FormDataWithoutFile,
+) {
+	return fetch('/', {
+		method: 'POST',
+		...(!isFormDataWithFile(data) && {
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+		}),
+		body: isFormDataWithFile(data)
+			? encodeWithFile(data)
+			: encodeWithoutFile(data),
+	})
 }
