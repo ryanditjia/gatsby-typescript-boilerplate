@@ -21,7 +21,7 @@
 		"build": "gatsby build",
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
-		"gen": "apollo codegen:generate src/types/graphql.ts --endpoint=http://0.0.0.0:8000/___graphql --outputFlat --target=typescript --tagName=graphql --includes='src/**/*.{ts,tsx}' --watch",
+		"gen": "apollo codegen:generate src/types/graphql.ts --endpoint=http://0.0.0.0:8000/___graphql --outputFlat --target=typescript --tagName=graphql --includes='src/**/*.{ts,tsx}' --no-addTypename --watch",
 		"format": "prettier --write \"**/*.{js,ts,tsx}\"",
 		"lint": "tsc --noEmit && eslint . --ext .js --ext .ts --ext .tsx"
 	},
