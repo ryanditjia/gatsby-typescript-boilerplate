@@ -39,7 +39,7 @@
 		"gatsby-plugin-purgecss": "^4.0.1",
 		"gatsby-plugin-react-helmet": "^3.1.15",
 		"gatsby-plugin-sitemap": "^2.2.21",
-		"gatsby-plugin-typescript": "^2.1.18",
+		"gatsby-plugin-typescript": "^2.1.19",
 		"gatsby-plugin-webpack-size": "^1.0.0",
 		"gatsby-source-filesystem": "^2.1.37",
 		"gatsby-transformer-remark": "^2.6.36",
