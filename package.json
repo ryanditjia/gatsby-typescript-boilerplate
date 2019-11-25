@@ -41,7 +41,7 @@
 		"gatsby-plugin-sitemap": "^2.2.21",
 		"gatsby-plugin-typescript": "^2.1.19",
 		"gatsby-plugin-webpack-size": "^1.0.0",
-		"gatsby-source-filesystem": "^2.1.37",
+		"gatsby-source-filesystem": "^2.1.38",
 		"gatsby-transformer-remark": "^2.6.37",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
